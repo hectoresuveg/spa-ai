@@ -34,9 +34,19 @@ body {
     height: 3.75rem;
     width: 100%;
     flex-shrink: 0;
-    background-color: hex(#fff);
+    background-color: #fff;
     overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.title{
+    color: #606770;
+    font-size: 2em;
+}
+
 
 /* Contenido dinámico */
 .app {

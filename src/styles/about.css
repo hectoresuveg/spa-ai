@@ -1,0 +1,25 @@
+.about__container {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.about__background-icon {
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    fill: none;
+    stroke: #808080;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.12;
+
+    pointer-events: none;
+}
