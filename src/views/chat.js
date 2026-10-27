@@ -1,5 +1,5 @@
 
-export function renderMessages() {
+export function renderChat() {
     const app = document.getElementById("app");
 
     app.innerHTML = `
