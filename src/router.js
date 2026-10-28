@@ -1,13 +1,13 @@
 /*Importa cada funcion desde su archivo corresponpdiente, cada una de ellas renderiza una vista dentro de app */
 import { renderAbout } from "./views/about.js";
 import { renderHome } from "./views/home.js";
-import { renderMessages } from "./views/messages.js";
+import { renderChat } from "./views/chat.js"
 import { renderNotFound } from "./views/notFound.js";
 
 /*Crea un objeto con las rutas donde cada clave almacena una funcion en su valor */
 const routes = {
     "/": renderHome,
-    "/chat": renderMessages,
+    "/chat": renderChat,
     "/about": renderAbout,
 }
 

@@ -1,4 +1,9 @@
 
+/*
+---Codigo del ejemplo de henry
+
+*/
+
 export function renderChat() {
     const app = document.getElementById("app");
 
@@ -16,82 +21,7 @@ export function renderChat() {
     Bien, ¿y tú?
 </div>
 
-<div class="chat-message">
-    Estoy bien, gracias.
-</div>
-
-<div class="chat-message">
-    ¿Qué has hecho hoy?
-</div>
-
-<div class="user-message">
-    He estado trabajando en una aplicación.
-</div>
-
-<div class="chat-message">
-    ¡Qué interesante! ¿De qué trata?
-</div>
-
-<div class="user-message">
-    Es una aplicación de chat.
-</div>
-
-<div class="chat-message">
-    ¿La estás haciendo desde cero?
-</div>
-
-<div class="user-message">
-    Sí, usando HTML, CSS y JavaScript.
-</div>
-
-<div class="chat-message">
-    ¡Genial! ¿Ya tienes la interfaz?
-</div>
-
-<div class="user-message">
-    Sí, estoy trabajando en la vista de conversación.
-</div>
-
-<div class="chat-message">
-    ¿Y cómo vas con el diseño?
-</div>
-
-<div class="user-message">
-    Bastante bien, ya tengo la navegación.
-</div>
-
-<div class="chat-message">
-    ¿Vas a añadir mensajes dinámicos?
-</div>
-
-<div class="user-message">
-    Sí, ese será el siguiente paso.
-</div>
-
-<div class="chat-message">
-    Te recomiendo que separes la lógica en funciones.
-</div>
-
-<div class="user-message">
-    Justamente estoy intentando mantener el código organizado.
-</div>
-
-<div class="chat-message">
-    ¡Vas por buen camino!
-</div>
-
-<div class="user-message">
-    Gracias, todavía me queda bastante por aprender.
-</div>
-
-<div class="chat-message">
-    Paso a paso. ¡Seguro que lo terminas!
-</div>
-
 <!-- Los mensajes anteriores son une ejemplo -->
-
-
-
 
             </section>
 
@@ -120,4 +50,7 @@ export function renderChat() {
 
         </div>
     `;
+
+    userMessage();
+
 }
