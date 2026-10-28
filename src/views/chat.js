@@ -2,6 +2,7 @@ const state = {
     status: "idle", // 'idle' || 'loading' || 'success' || 'error',
     messages: [{role: "character", text:"Hola, soy tu personaje favorito. Que queres saber?"}],
     error: null,
+    lastUsermessage: null,
 };
 
 function setState(updates){
@@ -39,7 +40,6 @@ export function renderChat() {
                         ${state.status === "loading" ? "disabled" : ""}
                         autocomplete="off"
                     />
-
                     <!-- chatComposer__send -->
                     <button
                         class="chat__send"  
@@ -54,14 +54,11 @@ export function renderChat() {
                     </button>
                 </form>
             </section>
-
         </div>
     `;
-
     setupChat();
     scrollToBottom();
 }
-
 
 function renderMessages(){
     return state.messages.map((msg)=> `
@@ -75,11 +72,14 @@ function renderStatus(){
     if (state.status === "loading"){
         return `<div class="message message--character message--typing"> escribiendo... </div>`
     }
-
+    if(state.status==="error"){
+        return `
+        <div class="message message--error"> ${state.error} </div>
+        <button class="message--retry" id="retryBtn" type="button"> Reintentar </button>
+        `
+    }
     return "";
 }
-
-
 
 function escapeHTML(str){
     const div = document.createElement("div");
@@ -89,7 +89,8 @@ function escapeHTML(str){
 
 function setupChat(){
     const $form = document.querySelector('#chat__form');
-    const $input = document.querySelector('#chat__input')    
+    const $input = document.querySelector('#chat__input');
+    const $retry = document.querySelector('#retryBtn');
 
     $form.addEventListener("submit", async (event) =>{
         event.preventDefault();
@@ -97,34 +98,48 @@ function setupChat(){
         const text = $input.value.trim();
         if(!text) return;
 
-        const userMessage = {role: "user", text};
+       await sendMessage(text);
+       $input.value=""
 
-        setState({
-            messages: [... state.messages, userMessage],
-            status: 'loading',
-            error: null,
-        });
+        document.querySelector("#chat__input")?.focus();
 
+    })
+
+    $retry?.addEventListener("click",()=>{
+        if(state.lastUsermessage){
+            sendMessage(state.lastUsermessage, true)
+        }
+    })
+
+    //Foco automatico al entrar a la vista 
+    $input.focus();
+    }
+
+    async function sendMessage(text, isRetry = false) {
+        if(!isRetry){
+            setState({
+                messages:[...state.messages, {role:"user", text}],
+                status:"loading",
+                error: null,
+                lastUsermessage: text,
+            });
+        } else {
+            setState({status:"loading", error: null});
+        }
         try {
             const reply = await getCharacterRepply(text);
             setState({
                 messages: [... state.messages, {role: "character", text: reply}],
                 status: "idle", 
                 error: null,
+                lastUsermessage: null,
             })
         } catch (error) {
             setState({
                 status: "error",
                 error: "ups, no te puedo responder. Reintentalo",
             });
-        }
-
-        document.querySelector("#chat__input")?.focus();
-
-    })
-    //Foco automatico al entrar a la vista 
-
-    $input.focus();
+        }   
     }
 
     function scrollToBottom(){
@@ -133,17 +148,21 @@ function setupChat(){
         if($messages){
             $messages.scrollTop = $messages.scrollHeight;
         }
-
     }
-
-
-
 
 function getCharacterRepply(userText){
     return new Promise((resolve, reject)=> {
         const delay = 800 + Math.random() * 1200;
 
         setTimeout(()=> {
+//Este bloque de codigo simula el error
+            if(Math.random() < 0.5){
+                reject(new Error("network error simulado"));
+                return;
+            }
+
+
+
             resolve(`Recibido: "${userText}". (Esta respuesta hoy esta simulaada)`)
         }, delay);
     });
