@@ -4,7 +4,7 @@ import { getUserMessage } from "../ui/messages.js";
 
 const state = {
     status: "idle", // 'idle' || 'loading' || 'success' || 'error',
-    messages: [{role: "character", text:"Hola, soy tu personaje favorito. Que queres saber?"}],
+    messages: [{role: "character", text:"Habla, ¿qué necesitas?"}],
     error: null,
     lastUsermessage: null,
     retryCountdown: null,

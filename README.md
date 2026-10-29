@@ -1,58 +1,181 @@
+# SPA con Inteligencia Artificial · Chat con Vegeta
 
-# Reporte de uso de Inteligencia Artificial
+Proyecto integrador del módulo 3. Aplicación web de una sola página (SPA), desarrollada de forma nativa con JavaScript, HTML y CSS, que genera contenido dinámico mediante la integración de la API de Gemini a través de una función serverless desplegada en Vercel.
 
+---
 
-Generación de una tarjeta de presentación para Vegeta
-1. Objetivo de la actividad
-Utilizar una herramienta de inteligencia artificial como apoyo para desarrollar una tarjeta de presentación del personaje Vegeta mediante HTML y CSS, aplicando una estructura sencilla, un enfoque de diseño mobile-first y la metodología BEM para nombrar las clases CSS.
-2. Solicitud original
-crea una tarjeta de presentacion de vegeta en html simple mobile first y devuelveme el css con metodologia bem
+## Descripción del personaje elegido
 
-3. Solicitud con redacción profesional
-Desarrolla una tarjeta de presentación del personaje Vegeta utilizando HTML semántico y una estructura sencilla, siguiendo el enfoque de diseño mobile-first. Proporciona el código CSS correspondiente y aplica la metodología BEM (Block, Element, Modifier) para nombrar y organizar las clases. La tarjeta debe presentar la información principal del personaje de manera clara, con un diseño visual atractivo y adaptable a diferentes tamaños de pantalla.
-4. Resultado obtenido
-La inteligencia artificial generó una propuesta de tarjeta de presentación que incluye los siguientes elementos:
-- Identificación del personaje mediante su nombre y título.
-- Descripción breve de su personalidad.
-- Información sobre su raza y planeta de origen.
-- Un enlace de acción para iniciar una conversación con el personaje.
-- Clases CSS organizadas mediante la metodología BEM.
-- Estilos visuales para colores, tipografía, espaciado, bordes, sombras y botones.
-- Adaptaciones para pantallas de mayor tamaño mediante media queries.
-- Consideraciones de accesibilidad, como el indicador de foco y la reducción de animaciones.
-5. Ajustes y aplicación en el proyecto
-Posteriormente, se adaptaron los estilos a una paleta de colores más clara y se revisó cómo integrar la tarjeta en la vista principal de una aplicación de una sola página (SPA).
+**Vegeta**, el príncipe de los saiyajin del universo de Dragon Ball.
 
-Se identificó que la tarjeta debía incorporarse dentro del contenedor de la vista de inicio (.home__container) y que, al generarse el contenido mediante JavaScript, la estructura debía integrarse en la función encargada de renderizar dicha vista.
-6. Uso de la inteligencia artificial
-La herramienta se utilizó como apoyo para generar una propuesta inicial de código, organizar los estilos CSS y orientar la integración del componente en la estructura existente del proyecto. También permitió identificar ajustes necesarios para mejorar la presentación y la adaptación de la tarjeta al diseño de la aplicación.
+- **Personalidad:** orgulloso, arrogante, competitivo, disciplinado y temperamental. Detesta que lo subestimen y le cuesta admitir que alguien es superior a él. Es inteligente, estratégico, directo, sarcástico e impaciente.
+- **Relación con el usuario:** lo trata con superioridad y exigencia, aunque con el tiempo puede desarrollar respeto y confianza. Le cuesta expresar afecto, pero puede mostrar un lado protector y leal.
+- **Rivalidad:** su rivalidad con Kakarotto (Goku) es constante.
+- **Expresiones características:** "¡Soy el príncipe de los saiyajin!", "¡Maldito Kakarotto!", "Tch...", "Hmph", "¡Insecto!", usadas solo cuando encajan de forma natural.
+- **Formato de respuesta:** máximo 3 líneas, tono firme, seguro y conciso.
+- **Límites:** en temas médicos, legales o financieros serios sale temporalmente del personaje y aclara que es un chatbot de ficción. Si no sabe algo de la realidad actual, lo admite, y no afirma tener experiencias, poderes o recuerdos reales.
 
-Creación de una tarjeta informativa del proyecto integrador del módulo 3
-1. Objetivo de la actividad
-Utilizar una herramienta de inteligencia artificial como apoyo para diseñar una tarjeta informativa que describa profesionalmente el proyecto integrador del módulo 3. La tarjeta debía mantener la misma identidad visual de la tarjeta previamente desarrollada para el personaje Vegeta, con una estructura adaptable a dispositivos móviles y clases CSS organizadas mediante la metodología BEM.
-2. Solicitud original
-ahora genera una tarjeta de informacion sobre el proyecto, se trata del proyecto integrador del modulo 3, una spa que genera contenido dinamico integrando la api de gemini desarrollada de forma nativa, utiliza una forma de redaccion profesional y utiliza los mismos estilos que con la tarjeta de vegueta
+El comportamiento completo del personaje está definido en el *system prompt* de [`src/services/prompts.js`](src/services/prompts.js).
 
-3. Solicitud con redacción profesional
-Genera una tarjeta informativa para presentar el proyecto integrador del módulo 3. El proyecto consiste en una aplicación web de una sola página (SPA) que genera contenido dinámico mediante la integración de la API de Gemini, desarrollada de forma nativa con tecnologías web. Utiliza una redacción profesional y conserva la identidad visual de la tarjeta de Vegeta, incluyendo la paleta de colores, la tipografía, los bordes, las sombras y el enfoque de diseño mobile-first. Organiza las clases CSS siguiendo la metodología BEM.
-4. Resultado obtenido
-La inteligencia artificial generó una propuesta de tarjeta informativa compuesta por:
-- Un encabezado que identifica el proyecto como parte del proyecto integrador del módulo 3.
-- Un título descriptivo: “SPA con Inteligencia Artificial”.
-- Una descripción profesional de la aplicación y de su integración con Gemini.
-- Una sección de datos clave que resume la arquitectura, la integración de la API y el enfoque de contenido dinámico.
-- Código HTML para estructurar el componente.
-- Código CSS con clases organizadas mediante la metodología BEM.
-- Estilos visuales coherentes con la tarjeta anterior de Vegeta.
-- Adaptaciones mediante media queries para pantallas de mayor tamaño.
-- Una consideración de accesibilidad relacionada con la preferencia de movimiento reducido.
-5. Aplicación en el proyecto
-La propuesta está pensada para incorporarse en la vista about de la SPA. Se utilizaron clases específicas con el prefijo project-card para mantener separados los estilos de la tarjeta informativa y los de la tarjeta de Vegeta, evitando mezclar sus componentes CSS.
+---
 
-Antes de integrarla definitivamente, es necesario comprobar que el contenido encaje con la estructura actual de la vista y verificar su presentación en diferentes tamaños de pantalla.
-6. Uso de la inteligencia artificial
-La herramienta se utilizó para redactar el contenido de presentación, generar una estructura inicial en HTML y proponer estilos CSS coherentes con un componente existente. También sirvió como apoyo para aplicar nomenclatura BEM, mantener una línea visual consistente y considerar la adaptación a distintos dispositivos.
+## Requisitos y pasos para ejecutar local
 
+### Requisitos
 
-## Conclusión
-La inteligencia artificial facilitó la creación de una propuesta inicial para presentar el proyecto integrador del módulo 3 de forma clara y profesional. El resultado combina contenido descriptivo y una estructura visual reutilizable, manteniendo la coherencia con el diseño previamente desarrollado. La propuesta debe revisarse e integrarse en la aplicación para confirmar su compatibilidad con la arquitectura y los estilos existentes.
+- [Node.js](https://nodejs.org/) (versión LTS reciente) y npm
+- Cuenta en [Vercel](https://vercel.com/) y Vercel CLI (`npm install -g vercel`)
+- Una API key de Gemini, que se obtiene en [Google AI Studio](https://aistudio.google.com/apikey)
+
+### Pasos
+
+1. **Clonar el repositorio y entrar a la carpeta del proyecto**
+
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd spa-ai
+   ```
+
+2. **Instalar dependencias**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configurar el archivo `.env`**
+
+   Copia el archivo de ejemplo y coloca tu API key:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   ```env
+   GEMINI_API_KEY=tu_api_key_de_gemini
+   ```
+
+   > El archivo `.env` está incluido en `.gitignore`. No lo subas al repositorio ni compartas tu clave.
+
+4. **Iniciar sesión y vincular el proyecto con Vercel** (solo la primera vez)
+
+   ```bash
+   vercel login
+   vercel link
+   ```
+
+5. **Ejecutar con `vercel dev`**
+
+   ```bash
+   vercel dev
+   ```
+
+   Se usa `vercel dev` en lugar de un servidor estático porque la carpeta `api/` contiene la función serverless (`/api/chat`) que se comunica con Gemini. Una vez iniciado, abre la URL que muestra la terminal (normalmente `http://localhost:3000`).
+
+### Rutas de la aplicación
+
+| Ruta     | Vista                                                   |
+| -------- | ------------------------------------------------------- |
+| `/`      | Home: tarjeta de presentación de Vegeta                 |
+| `/chat`  | Chat con Vegeta                                         |
+| `/about` | Tarjeta informativa del proyecto                        |
+| otras    | Vista de página no encontrada                           |
+
+El archivo `vercel.json` redirige todas las rutas a `index.html` para que el router del lado del cliente funcione al recargar la página.
+
+---
+
+## Cómo ejecutar tests
+
+Las pruebas usan [Vitest](https://vitest.dev/) y se encuentran en la carpeta `tests/`. Cubren las funciones de transformación del chat: `buildPayload`, `normalizeAIResponse` y `getTrimmedHistory`. Para no consumir tokens de la API real, usan el mock de `src/services/mockGeminiApi.js`.
+
+```bash
+# Modo watch (el que ejecuta el script del proyecto)
+npm test
+
+# Ejecución única, sin quedarse en modo watch
+npx vitest run
+```
+
+---
+
+## Cómo desplegar a Vercel
+
+### Opción A: con la CLI
+
+1. Instala la CLI e inicia sesión:
+
+   ```bash
+   npm install -g vercel
+   vercel login
+   ```
+
+2. Desde la raíz del proyecto, crea el despliegue de prueba (la primera vez te pedirá vincular el proyecto):
+
+   ```bash
+   vercel
+   ```
+
+3. Agrega la variable de entorno `GEMINI_API_KEY` en el proyecto:
+
+   ```bash
+   vercel env add GEMINI_API_KEY
+   ```
+
+   Selecciona los entornos en los que debe estar disponible (Production, Preview y Development).
+
+4. Despliega a producción:
+
+   ```bash
+   vercel --prod
+   ```
+
+### Opción B: desde el panel de Vercel
+
+1. Sube el proyecto a un repositorio de GitHub.
+2. En Vercel, ve a **Add New → Project** e importa el repositorio.
+3. En **Environment Variables**, agrega `GEMINI_API_KEY` con tu clave.
+4. Pulsa **Deploy**. Cada `push` posterior a la rama principal generará un nuevo despliegue.
+
+> Si agregas o cambias variables de entorno después de un despliegue, vuelve a desplegar para que se apliquen.
+
+---
+
+## Capturas de pantalla de la aplicación funcionando
+
+![alt text](/docs/captura1.png)
+
+![alt text](/docs/captura2.png)
+
+![alt text](/docs/captura3.png)
+
+![alt text](/docs/captura4.png)
+
+---
+
+## Link a la aplicación desplegada
+
+https://spa-ai-pi.vercel.app/
+
+---
+
+## Registro del uso de AI en el proyecto
+
+El detalle completo se encuentra en [`docs/reporteAI.md`](docs/reporteAI.md). Resumen:
+
+### 1. Tarjeta de presentación de Vegeta
+
+- **Objetivo:** apoyarse en una herramienta de IA para crear una tarjeta de presentación del personaje en HTML y CSS, con enfoque *mobile-first* y metodología BEM.
+- **Solicitud original:** *"crea una tarjeta de presentacion de vegeta en html simple mobile first y devuelveme el css con metodologia bem"*.
+- **Resultado:** propuesta con nombre y título del personaje, descripción de su personalidad, raza y planeta de origen, un enlace de acción para conversar con él, clases CSS organizadas con BEM, estilos de color, tipografía, espaciado, bordes, sombras y botones, *media queries* para pantallas grandes y consideraciones de accesibilidad (indicador de foco y reducción de animaciones).
+- **Ajustes propios:** se adaptó la paleta a colores más claros y se integró la tarjeta en la función que renderiza la vista de inicio (`.home__container`), ya que el contenido se genera con JavaScript.
+
+### 2. Tarjeta informativa del proyecto integrador
+
+- **Objetivo:** crear una tarjeta que describa el proyecto de forma profesional, manteniendo la identidad visual de la tarjeta de Vegeta.
+- **Solicitud original:** *"ahora genera una tarjeta de informacion sobre el proyecto, se trata del proyecto integrador del modulo 3, una spa que genera contenido dinamico integrando la api de gemini desarrollada de forma nativa, utiliza una forma de redaccion profesional y utiliza los mismos estilos que con la tarjeta de vegueta"*.
+- **Resultado:** encabezado del proyecto, título "SPA con Inteligencia Artificial", descripción profesional, sección de datos clave (arquitectura, integración y enfoque), HTML y CSS con BEM, estilos coherentes con la tarjeta anterior y soporte para movimiento reducido.
+- **Aplicación:** se integró en la vista `about` con el prefijo `project-card` para mantener separados sus estilos de los de la tarjeta de Vegeta.
+
+### Conclusión
+
+La IA se utilizó como apoyo para generar propuestas iniciales de código, organizar estilos CSS, redactar contenido de presentación y orientar la integración de componentes. Todas las propuestas fueron revisadas, adaptadas e integradas manualmente en la arquitectura existente del proyecto.
