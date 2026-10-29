@@ -1,3 +1,5 @@
+import { getCharacterReply } from "../services/aiClient.js";
+
 const state = {
     status: "idle", // 'idle' || 'loading' || 'success' || 'error',
     messages: [{role: "character", text:"Hola, soy tu personaje favorito. Que queres saber?"}],
@@ -116,6 +118,15 @@ function setupChat(){
     }
 
     async function sendMessage(text, isRetry = false) {
+        const nextMessages = isRetry ? state.messages : [... state.messages, {role: "user", text}];
+
+        setState({
+                messages:nextMessages,
+                status:"loading",
+                error: null,
+                lastUsermessage: isRetry ? state.lastUsermessage : text,
+            });
+        /*
         if(!isRetry){
             setState({
                 messages:[...state.messages, {role:"user", text}],
@@ -126,10 +137,11 @@ function setupChat(){
         } else {
             setState({status:"loading", error: null});
         }
+            */
         try {
-            const reply = await getCharacterRepply(text);
+            const reply = await getCharacterReply(nextMessages);
             setState({
-                messages: [... state.messages, {role: "character", text: reply}],
+                messages: [... nextMessages, {role: "character", text: reply}],
                 status: "idle", 
                 error: null,
                 lastUsermessage: null,
@@ -149,7 +161,7 @@ function setupChat(){
             $messages.scrollTop = $messages.scrollHeight;
         }
     }
-
+/*
 function getCharacterRepply(userText){
     return new Promise((resolve, reject)=> {
         const delay = 800 + Math.random() * 1200;
@@ -167,3 +179,5 @@ function getCharacterRepply(userText){
         }, delay);
     });
 }
+ */
+
