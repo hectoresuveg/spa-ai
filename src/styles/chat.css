@@ -7,6 +7,7 @@
     min-width: 0;
     width: 100%;
     overflow: hidden;
+    background-color: rgb(236, 242, 255);
 }
 
 /* Área de mensajes */
@@ -164,4 +165,13 @@
 
 .message--retry:hover{
     background: #991b1b;
+}
+
+/* Responsividad para escritorio */
+@media (min-width: 768px) {
+    .chat__container {
+        width: 100%;
+        max-width: 800px;
+        margin-inline: auto;
+    }
 }
