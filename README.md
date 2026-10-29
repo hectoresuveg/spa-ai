@@ -4,6 +4,12 @@ Proyecto integrador del módulo 3. Aplicación web de una sola página (SPA), de
 
 ---
 
+## Link a la aplicación desplegada
+
+https://spa-ai-pi.vercel.app/
+
+---
+
 ## Descripción del personaje elegido
 
 **Vegeta**, el príncipe de los saiyajin del universo de Dragon Ball.
@@ -142,13 +148,13 @@ npx vitest run
 
 ## Capturas de pantalla de la aplicación funcionando
 
-![alt text](/docs/captura1.png)
+![Desktop](/docs/captura1.png)
 
-![alt text](/docs/captura2.png)
+![mobile view](/docs/captura2.png)
 
-![alt text](/docs/captura3.png)
+![mobile view](/docs/captura3.png)
 
-![alt text](/docs/captura4.png)
+![mobile view](/docs/captura4.png)
 
 ---
 
