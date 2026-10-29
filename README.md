@@ -165,14 +165,14 @@ El detalle completo se encuentra en [`docs/reporteAI.md`](docs/reporteAI.md). Re
 ### 1. Tarjeta de presentación de Vegeta
 
 - **Objetivo:** apoyarse en una herramienta de IA para crear una tarjeta de presentación del personaje en HTML y CSS, con enfoque *mobile-first* y metodología BEM.
-- **Solicitud original:** *"crea una tarjeta de presentacion de vegeta en html simple mobile first y devuelveme el css con metodologia bem"*.
+- **Solicitud:** *"crea una tarjeta de presentacion de vegeta en html simple mobile first y devuelveme el css con metodologia bem"*.
 - **Resultado:** propuesta con nombre y título del personaje, descripción de su personalidad, raza y planeta de origen, un enlace de acción para conversar con él, clases CSS organizadas con BEM, estilos de color, tipografía, espaciado, bordes, sombras y botones, *media queries* para pantallas grandes y consideraciones de accesibilidad (indicador de foco y reducción de animaciones).
 - **Ajustes propios:** se adaptó la paleta a colores más claros y se integró la tarjeta en la función que renderiza la vista de inicio (`.home__container`), ya que el contenido se genera con JavaScript.
 
 ### 2. Tarjeta informativa del proyecto integrador
 
 - **Objetivo:** crear una tarjeta que describa el proyecto de forma profesional, manteniendo la identidad visual de la tarjeta de Vegeta.
-- **Solicitud original:** *"ahora genera una tarjeta de informacion sobre el proyecto, se trata del proyecto integrador del modulo 3, una spa que genera contenido dinamico integrando la api de gemini desarrollada de forma nativa, utiliza una forma de redaccion profesional y utiliza los mismos estilos que con la tarjeta de vegueta"*.
+- **Solicitud :** *"ahora genera una tarjeta de informacion sobre el proyecto, se trata del proyecto integrador del modulo 3, una spa que genera contenido dinamico integrando la api de gemini desarrollada de forma nativa, utiliza una forma de redaccion profesional y utiliza los mismos estilos que con la tarjeta de vegueta"*.
 - **Resultado:** encabezado del proyecto, título "SPA con Inteligencia Artificial", descripción profesional, sección de datos clave (arquitectura, integración y enfoque), HTML y CSS con BEM, estilos coherentes con la tarjeta anterior y soporte para movimiento reducido.
 - **Aplicación:** se integró en la vista `about` con el prefijo `project-card` para mantener separados sus estilos de los de la tarjeta de Vegeta.
 
