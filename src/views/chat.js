@@ -1,10 +1,13 @@
 import { getCharacterReply } from "../services/aiClient.js";
+import { debounce, wait } from "../services/debounce.js";
+import { getUserMessage } from "../ui/messages.js";
 
 const state = {
     status: "idle", // 'idle' || 'loading' || 'success' || 'error',
     messages: [{role: "character", text:"Hola, soy tu personaje favorito. Que queres saber?"}],
     error: null,
     lastUsermessage: null,
+    retryCountdown: null,
 };
 
 function setState(updates){
@@ -71,6 +74,14 @@ function renderMessages(){
 }
 
 function renderStatus(){
+    if (state.status === "loading" && state.retryCountdown !== null) {
+    return `
+        <div class="message message--character message--typing">
+            Esperando para reintentar (${state.retryCountdown} segundos)...
+        </div>
+    `;
+}
+
     if (state.status === "loading"){
         return `<div class="message message--character message--typing"> escribiendo... </div>`
     }
@@ -94,8 +105,8 @@ function setupChat(){
     const $input = document.querySelector('#chat__input');
     const $retry = document.querySelector('#retryBtn');
 
-    $form.addEventListener("submit", async (event) =>{
-        event.preventDefault();
+    const debouncedSend = debounce(async()=>{
+        if(state.status === "loading") return;
 
         const text = $input.value.trim();
         if(!text) return;
@@ -104,10 +115,15 @@ function setupChat(){
        $input.value=""
 
         document.querySelector("#chat__input")?.focus();
+    }, 200)
 
+    $form.addEventListener("submit", async (event) =>{
+        event.preventDefault();
+        debouncedSend();
     })
 
     $retry?.addEventListener("click",()=>{
+        if(state.status === "loading") return;
         if(state.lastUsermessage){
             sendMessage(state.lastUsermessage, true)
         }
@@ -146,10 +162,44 @@ function setupChat(){
                 error: null,
                 lastUsermessage: null,
             })
-        } catch (error) {
+        } catch (err) {
+
+            if (err.status === 429) {
+            const seconds = err.retryAfterSeconds ?? 5;
+
+            for (let s = seconds; s > 0; s--) {
+            setState({ status: "loading", retryCountdown: s });
+            await wait(1000);
+                }
+
+                try {
+            setState({ status: "loading", retryCountdown: null });
+
+            const reply = await getCharacterReply(nextMessages);
+
+            setState({
+                messages: [...nextMessages, { role: "character", text: reply }],
+                status: "idle",
+                error: null,
+                lastUsermessage: null,
+            });
+
+            return;
+            } catch (errRetry) {
+             // Reintento falló, mostrar error final.
             setState({
                 status: "error",
-                error: "ups, no te puedo responder. Reintentalo",
+                error: getUserMessage(err),
+            });
+
+            return;
+            }
+            }
+
+            
+            setState({
+                status: "error",
+                error: getUserMessage(err),
             });
         }   
     }
