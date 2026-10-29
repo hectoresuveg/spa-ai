@@ -1,3 +1,4 @@
+
 const MAX_OUTPUT_TOKENS = 200;
 const TEMPERATURE = 0.9; // alta para que Rich sea creativo
 const MAX_TURNS_HISTORY = 12; // cuanto historial mandamos como contexto

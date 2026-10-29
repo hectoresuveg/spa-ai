@@ -5,16 +5,15 @@
   "main": "index.js",
   "directories": {
     "doc": "docs",
-    "test": "tests",
-    "type": "module"
-  },
+    "test": "tests"
+   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@google/generative-ai": "^0.24.1"
   }
